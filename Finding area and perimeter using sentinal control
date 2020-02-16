@@ -1,0 +1,69 @@
+using System;
+
+namespace RectangleApplication
+{
+
+    class Rectangle
+    {
+        //member variables
+        public double length;
+        public double width;
+        public int i;
+        public void Acceptdetails()
+        {
+            Console.WriteLine("Enter Length: ");
+            length = Convert.ToDouble(Console.ReadLine());
+            while (length <=0)
+            {
+                Console.WriteLine("Enter Length again you have inputed a negative value: ");
+                length = Convert.ToDouble(Console.ReadLine());
+            }
+            Console.WriteLine("Enter Width: ");
+            width = Convert.ToDouble(Console.ReadLine());
+            while (width <= 0)
+            {
+                Console.WriteLine("Enter width again you have inputed a negative value: ");
+                width = Convert.ToDouble(Console.ReadLine());
+            }
+        }
+        public double GetArea()
+        {
+            return length * width;
+        }
+        public double GetPerimeter()
+        {
+            return 2 * (length + width);
+        }
+
+        
+        public void Display()
+        {
+            Console.WriteLine("Length: {0}", length);
+            Console.WriteLine("Width: {0}", width);
+            Console.WriteLine("Area: {0}", GetArea());
+            Console.WriteLine("Perimeter: {0}", GetPerimeter());
+        }
+    }//end class Rectangle
+
+    class ExecuteRectangle
+    {
+        static void Main(string[] args)
+        {
+            string input;
+
+            Rectangle r = new Rectangle();
+            do
+            {
+                r.Acceptdetails();
+                r.Display();
+                Console.WriteLine("/nWould you like to try the code again? if yes then type 'yes': ");
+                input = Console.ReadLine();
+
+            } while (input == "yes");
+
+
+
+            Console.ReadLine();
+        }
+    }
+}
